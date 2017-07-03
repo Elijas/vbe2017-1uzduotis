@@ -2,7 +2,6 @@
 #include <sstream>
 #include <fstream>
 
-#define outputFile cout //D
 using namespace std;
 
 char getHexDigit(int decDigit) {
@@ -18,17 +17,17 @@ string getHexNumber(int decNumber) {
 int main() {
     // Opening files and reading metadata
     ifstream inputFile("U1.txt");
-    //ofstream outputFile("U1rez.txt"); //D
+    ofstream outputFile("U1rez.txt");
     int length, width;
     inputFile >> length >> width;
 
-    // Converting the numbers
+    // Continuously converting the numbers
     for (int il = 0; il < length; ++il) {
         for (int iw = 0; iw < width; ++iw) {
             for (int i = 0; i < 3; ++i) {
-                int num;
-                inputFile >> num;
-                outputFile << getHexNumber(num);
+                int number;
+                inputFile >> number;
+                outputFile << getHexNumber(number);
             }
 
             if (iw < width - 1)
@@ -38,7 +37,8 @@ int main() {
         }
     }
 
-
-
+    // Closing the program
+    inputFile.close();
+    outputFile.close();
     return 0;
 }
