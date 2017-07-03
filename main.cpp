@@ -24,7 +24,8 @@ int main() {
     // Continuously converting the numbers
     for (int il = 0; il < length; ++il) {
         for (int iw = 0; iw < width; ++iw) {
-            for (int i = 0; i < 3; ++i) {
+            const int colorsPerPixel = 3;
+            for (int ic = 0; ic < colorsPerPixel; ++ic) {
                 int number;
                 inputFile >> number;
                 outputFile << getHexNumber(number);
